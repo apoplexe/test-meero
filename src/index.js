@@ -1,12 +1,17 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+import "./index.css";
 
-ReactDOM.render(<App />, document.getElementById('root'));
+import ConnectedApp from "./state/containers/ConnectedApp";
+import { Provider } from "react-redux";
+import React from "react";
+import { createStore } from "redux";
+import moviesApp from "./state/reducers";
+import { render } from "react-dom";
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+const store = createStore(moviesApp);
+
+render(
+  <Provider store={store}>
+    <ConnectedApp />
+  </Provider>,
+  document.getElementById("root")
+);

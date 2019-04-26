@@ -1,26 +1,15 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import "./app.css";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+import CardList from "./components/CardList";
+import ConnectedAppBar from "./state/containers/ConnectedAppBar";
+import Paper from "@material-ui/core/Paper";
+import React from "react";
 
-export default App;
+const app = ({ cardsList: { cards, locations, location } }) => (
+  <Paper elevation={0}>
+    <ConnectedAppBar locations={locations} />
+    <CardList cards={cards} location={location} />
+  </Paper>
+);
+
+export default app;
