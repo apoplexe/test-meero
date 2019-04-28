@@ -18,30 +18,24 @@ const styles = {
   }
 };
 
-function MediaCard(props) {
-  const {
-    classes,
-    card: { image, name, description, location }
-  } = props;
-  return (
-    <Card className={classes.card}>
-      <CardActionArea>
-        <CardMedia className={classes.media} image={image} title={name} />
-        <CardContent>
-          <Typography gutterBottom variant="h5" component="h2">
-            {`${name} from ${location}`}
-          </Typography>
-          <Typography component="p">{description}</Typography>
-        </CardContent>
-      </CardActionArea>
-      <CardActions>
-        <Button size="small" color="primary">
-          details
-        </Button>
-      </CardActions>
-    </Card>
-  );
-}
+const MediaCard = ({ classes, cat: { url } }) => (
+  <Card className={classes.card}>
+    <CardActionArea>
+      <CardMedia className={classes.media} image={url} title={url} />
+      <CardContent>
+        <Typography gutterBottom variant="h5" component="h2">
+          {`${"name"} from ${"location"}`}
+        </Typography>
+        <Typography component="p">{"description"}</Typography>
+      </CardContent>
+    </CardActionArea>
+    <CardActions>
+      <Button size="small" color="primary">
+        details
+      </Button>
+    </CardActions>
+  </Card>
+);
 
 MediaCard.propTypes = {
   classes: PropTypes.object.isRequired

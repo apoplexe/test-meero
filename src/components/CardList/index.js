@@ -13,15 +13,15 @@ const styles = {
 };
 
 const CardList = ({ cards, classes, location }) => {
-  const filteredCards = location
-    ? cards.filter(card => card.location === location)
-    : cards;
+  // const filteredCards = location
+  //   ? cats.filter(card => card.location === location)
+  //   : cats;
 
   return (
     <ul className={classes.root}>
-      {filteredCards.map(card => (
-        <li>
-          <CatCard card={card} />
+      {cards.cats.map(cat => (
+        <li key={cat.id}>
+          <CatCard cat={cat} />
         </li>
       ))}
     </ul>
