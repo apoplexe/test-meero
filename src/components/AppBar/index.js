@@ -47,8 +47,9 @@ const ButtonAppBar = ({ classes, locations, handleLocationChange }) => {
               input={
                 <OutlinedInput
                   labelWidth={
-                    inputLabel.current &&
-                    ReactDOM.findDOMNode(inputLabel.current).offsetWidth
+                    inputLabel.current
+                      ? ReactDOM.findDOMNode(inputLabel.current).offsetWidth
+                      : 120
                   }
                   name="location"
                   id="select-location"
@@ -56,7 +57,9 @@ const ButtonAppBar = ({ classes, locations, handleLocationChange }) => {
               }
             >
               {locations.map(location => (
-                <MenuItem value={location}>{location}</MenuItem>
+                <MenuItem key={location} value={location}>
+                  {location}
+                </MenuItem>
               ))}
             </Select>
           </FormControl>
