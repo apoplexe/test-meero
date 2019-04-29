@@ -4,7 +4,7 @@ import {
   fetchCatsSuccess
 } from "../actions/index";
 
-import App from "../../app";
+import App from "../../App";
 import { connect } from "react-redux";
 import fetchCats from "../../utils/request";
 
